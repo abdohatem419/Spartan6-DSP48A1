@@ -9,22 +9,22 @@ output     [PATH_WIDTH-1:0]OUT;
 reg        [PATH_WIDTH-1:0]I0_REG_SYNC,I0_REG_ASYNC;
 
 always@(posedge clk or posedge rst) begin
-    if(clk_enable)begin
         if(rst)begin
             I0_REG_ASYNC<=0;
         end
         else begin
+            if(clk_enable)begin
             I0_REG_ASYNC<=I0;
         end
     end
 end
 
 always@(posedge clk) begin
-    if(clk_enable)begin
         if(rst)begin
             I0_REG_SYNC<=0;
         end
         else begin
+            if(clk_enable)begin
             I0_REG_SYNC<=I0;
         end
     end
